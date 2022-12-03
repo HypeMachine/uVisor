@@ -1,0 +1,31 @@
+<link rel="stylesheet" type="text/css" href="../css/uvisor.css">
+<link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet">
+
+<div class="main">
+    <span class="info nohigh" style="-webkit-app-region: drag">
+        <p id="gpu">N/A</p>
+        <p id="gpuTotalMem">N/A</p>
+        <p id="cpuClock">N/A</p>
+        <p id="cpuTemp">N/A</p>
+    </span>
+</div>
+
+<script>
+    const visor = require('../visor');
+
+    visor.getGPUTotalMem().then(totalGPUMem => {
+        document.getElementById('gpuTotalMem').innerHTML = `${totalGPUMem}MB |`
+    });
+
+    async function getAllData() {
+        const allData = await visor.getData();
+        document.getElementById('gpu')
+            .innerHTML = `${allData.gpuData.temperature}˚C | ${allData.gpuData.mem.used}/`;
+        document.getElementById('cpuTemp')
+            .innerHTML = ` ${allData.cpuTemp}˚C`;
+        document.getElementById('cpuClock')
+            .innerHTML = ` ${allData.gpuData.CPUClock} |`;
+    };
+
+    setInterval(getAllData, 1000);
+</script>
