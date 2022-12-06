@@ -5,11 +5,13 @@
   "main": "src/main.js",
   "bin": "src/main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "compile": "electron-packager . uVisor --platform=win32 --arch=x64 --out=bin"
   },
   "author": "noone",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^6.1.12"
+    "electron": "^6.1.12",
+    "electron-packager": "^17.1.1"
   }
 }
