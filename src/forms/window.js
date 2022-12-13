@@ -35,7 +35,4 @@ const createWindow = () => {
 }
 
 
-module.exports = {
-    createWindow,
-    win
-};
+module.exports = createWindow
