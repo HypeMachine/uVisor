@@ -6,26 +6,26 @@
         <p id="gpu">N/A</p>
         <p id="gpuTotalMem">N/A</p>
         <p id="cpuClock">N/A</p>
-        <p id="cpuTemp">N/A</p>
+        <!-- <p id="cpuTemp">N/A</p> -->
     </span>
 </div>
 
 <script>
-    const visor = require('../visor');
-
-    visor.getGPUTotalMem().then(totalGPUMem => {
+    const { getGPUTotalMem } = require('../visor');
+    getGPUTotalMem().then(totalGPUMem => {
         document.getElementById('gpuTotalMem').innerHTML = `${totalGPUMem}MB |`
     });
+</script>
 
-    async function getAllData() {
-        const allData = await visor.getData();
-        document.getElementById('gpu')
-            .innerHTML = `${allData.gpuData.temperature}˚C | ${allData.gpuData.mem.used}/`;
-        document.getElementById('cpuTemp')
-            .innerHTML = ` ${allData.cpuTemp}˚C`;
-        document.getElementById('cpuClock')
-            .innerHTML = ` ${allData.gpuData.CPUClock} |`;
-    };
+<script>
+    const { getData } = require('../visor');
 
-    setInterval(getAllData, 1000);
+    setInterval(() => {
+        getData().then(([temp, memUsed, clock, memClock]) => {
+            document.getElementById('gpu')
+                .innerHTML = `${temp}˚C | ${memUsed}/`;
+            document.getElementById('cpuClock')
+                .innerHTML = ` ${clock}`;
+        })
+    }, 1000);
 </script>

@@ -1,11 +1,12 @@
 {
   "name": "uvisor",
   "version": "1.1.1",
-  "description": "shows system info",
+  "description": "shows nvidia graphic card info",
   "main": "src/main.js",
   "bin": "src/main.js",
   "scripts": {
     "start": "electron .",
+    "debug": "set DEBUG=true && electron .",
     "compile": "electron-packager . uVisor --platform=win32 --arch=x64 --out=bin"
   },
   "author": "noone",

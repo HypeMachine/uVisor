@@ -38,4 +38,4 @@ const createTray = (win) => {
 }
 
 
-module.exports = createTray;
+module.exports = { createTray };

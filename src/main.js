@@ -10,6 +10,7 @@ async function main() {
         app.whenReady().then(createWindow).then(win => createTray(win))
     } catch (e) {
         console.error(e);
+        app.quit();
     }
 
 }
