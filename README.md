@@ -60,6 +60,7 @@ npm run compile
 
 At the moment, the program runs correctly on the following GPUs:
 
-* **RTX 3060**
-* **RTX 3070**
-* **RTX 4060**
+* **RTX 16XX**
+* **RTX 20XX**
+* **RTX 30XX**
+* **RTX 40XX**
